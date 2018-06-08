@@ -20,10 +20,14 @@ class ViewController: UIViewController {
         let iv = UIImageView(frame: rect)
         iv.center = view.center
         view.addSubview(iv)
-        //设置图像，PNG图片是支持透明的
-        let imageIcon = #imageLiteral(resourceName: "avatar_default_big")
+        //设置图像，
+        //PNG图片是支持透明的
+        //jpg图片不支持透明，使用imageNamed方法，需要指定扩展名
+//        let imageIcon = #imageLiteral(resourceName: "avatar_default_big")
+        let imageIcon = UIImage(named: "头像.jpg")
         
-        iv.image = avatarImage(image: imageIcon, size: rect.size, backGroundColor: view.backgroundColor)
+//        iv.image = imageIcon
+        iv.image = avatarImage(image: imageIcon!, size: rect.size, backGroundColor: view.backgroundColor)
     }
 
     /// 将给定的图像进行拉伸，并且返回‘新的’图像
